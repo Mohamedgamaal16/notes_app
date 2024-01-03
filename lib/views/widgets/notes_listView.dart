@@ -12,15 +12,19 @@ class NotesListView extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 15,
-        itemBuilder: (context, index) {
-          if (index < colorData.length) {
-           return NoteItem(colorData: colorData[index]);
-          } else {
-             index = 4; 
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      child: ListView.builder(
+          padding: const EdgeInsets.all(0),
+          itemCount: 15,
+          itemBuilder: (context, index) {
+            if (index < colorData.length) {
               return NoteItem(colorData: colorData[index]);
-          }
-        });
+            } else {
+              index = 4;
+              return NoteItem(colorData: colorData[index]);
+            }
+          }),
+    );
   }
 }
