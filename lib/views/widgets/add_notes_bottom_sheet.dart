@@ -8,7 +8,7 @@ class AddNoteBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      decoration: const BoxDecoration(color: Colors.black38),
       child: Column(
         children: [
           CustomTextFormfield(hintname: 'write title'),
