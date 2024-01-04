@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_gemy/constans.dart';
 
 // ignore: must_be_immutable
-class CustomTextFormfield extends StatelessWidget {
-  CustomTextFormfield(
+class CustomTextfield extends StatelessWidget {
+  CustomTextfield(
       {super.key,
       required this.hintname,
       this.onChange,
@@ -14,29 +15,26 @@ class CustomTextFormfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
-      child: TextFormField(
+      child: TextField(
         obscureText: obscureText,
-        validator: (data) {
-          if (data!.isEmpty) {
-            return 'reqiured';
-          }
-        },
         onChanged: onChange,
         decoration: InputDecoration(
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.white,
-            ),
-          ),
-          border: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.white,
-            ),
-          ),
+          enabledBorder: buildBorder(),
+          border: buildBorder(),
+          focusedBorder: buildBorder(kPrimaryColor),
           hintText: hintname,
-          hintStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: kPrimaryColor),
         ),
       ),
+    );
+  }
+
+  OutlineInputBorder buildBorder([color]) {
+    return OutlineInputBorder(
+      borderSide: BorderSide(
+        color: color ?? Colors.white,
+      ),
+      borderRadius: BorderRadius.circular(12),
     );
   }
 }

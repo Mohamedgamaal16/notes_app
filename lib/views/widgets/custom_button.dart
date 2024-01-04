@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app_gemy/constans.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
@@ -13,7 +14,7 @@ class CustomButton extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.white,
+          color: kPrimaryColor,
         ),
         child: Center(
           child: Text(

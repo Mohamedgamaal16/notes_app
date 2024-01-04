@@ -9,15 +9,19 @@ class AddNoteBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(color: Colors.black38),
-      child: Column(
-        children: [
-          CustomTextFormfield(hintname: 'write title'),
-          CustomTextFormfield(hintname: 'write subtitle'),
-          const SizedBox(
-            height: 100,
-          ),
-          CustomButton(buttonName: 'Add')
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal:16.0),
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            CustomTextfield(hintname: 'write title'),
+            CustomTextfield(hintname: 'write subtitle'),
+            const SizedBox(
+              height: 100,
+            ),
+            CustomButton(buttonName: 'Add')
+          ],
+        ),
       ),
     );
   }
