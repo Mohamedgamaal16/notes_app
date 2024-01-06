@@ -7,7 +7,9 @@ class CustomTextfield extends StatelessWidget {
       {super.key,
       required this.hintname,
       this.onChange,
-      this.obscureText = false});
+      this.obscureText = false,this.maxLines = 1});
+
+      final int maxLines ;
   final String hintname;
   bool obscureText;
   Function(String)? onChange;
@@ -16,6 +18,7 @@ class CustomTextfield extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 2),
       child: TextField(
+        maxLines: maxLines,
         obscureText: obscureText,
         onChanged: onChange,
         decoration: InputDecoration(

@@ -8,18 +8,19 @@ class AddNoteBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 400,
       decoration: const BoxDecoration(color: Colors.black38),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal:16.0),
-        child: Column(
+        child: ListView(
           children: [
             const SizedBox(height: 20),
             CustomTextfield(hintname: 'write title'),
-            CustomTextfield(hintname: 'write subtitle'),
+            CustomTextfield(hintname: 'write subtitle',maxLines: 5,),
             const SizedBox(
-              height: 100,
+              height: 40,
             ),
-            CustomButton(buttonName: 'Add')
+            CustomButton(buttonName: 'Save',onTap: (){},)
           ],
         ),
       ),
