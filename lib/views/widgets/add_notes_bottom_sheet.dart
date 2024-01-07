@@ -10,19 +10,65 @@ class AddNoteBottomSheet extends StatelessWidget {
     return Container(
       height: 400,
       decoration: const BoxDecoration(color: Colors.black38),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal:16.0),
-        child: ListView(
-          children: [
-            const SizedBox(height: 20),
-            CustomTextfield(hintname: 'write title'),
-            CustomTextfield(hintname: 'write subtitle',maxLines: 5,),
-            const SizedBox(
-              height: 40,
-            ),
-            CustomButton(buttonName: 'Save',onTap: (){},)
-          ],
-        ),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: AddNoteForm(),
+      ),
+    );
+  }
+}
+
+class AddNoteForm extends StatefulWidget {
+  const AddNoteForm({
+    super.key,
+  });
+
+  @override
+  State<AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<AddNoteForm> {
+  final GlobalKey<FormState> formKey = GlobalKey();
+   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, subtitle;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: formKey,
+      autovalidateMode: autovalidateMode,
+      child: ListView(
+        children: [
+          const SizedBox(height: 20),
+          CustomTextfield(
+            hintname: 'write title',
+            onSaved: (value) {
+              title = value;
+            },
+          ),
+          CustomTextfield(
+            hintname: 'write subtitle',
+            maxLines: 5,
+            onSaved: (value) {
+              subtitle = value;
+            },
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          CustomButton(
+            buttonName: 'Save',
+            onTap: () {
+              if(formKey.currentState!.validate()){
+                formKey.currentState!.save();
+              }else{
+                autovalidateMode = AutovalidateMode.always;
+                setState(() {
+                  
+                });
+              }
+            },
+          )
+        ],
       ),
     );
   }
