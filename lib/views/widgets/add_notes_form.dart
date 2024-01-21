@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app_gemy/cubits/notes_cubit/add_notes_cubit.dart';
+import 'package:notes_app_gemy/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app_gemy/models/note_model.dart';
 import 'package:notes_app_gemy/views/widgets/custom_button.dart';
 
