@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app_gemy/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app_gemy/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app_gemy/models/note_model.dart';
+import 'package:notes_app_gemy/views/widgets/colors_listview.dart';
 import 'package:notes_app_gemy/views/widgets/custom_button.dart';
 
 import 'custom_text_field.dart';
@@ -42,6 +43,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
               subtitle = value;
             },
           ),
+          ColorListView(),
           const SizedBox(
             height: 40,
           ),
@@ -72,3 +74,4 @@ class _AddNoteFormState extends State<AddNoteForm> {
     );
   }
 }
+
